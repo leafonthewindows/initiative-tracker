@@ -1,0 +1,90 @@
+.new-initiative{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #253e69ff;
+    min-height: calc(20vh - 4px);
+    border-bottom: 4px solid black;
+}
+
+h1{
+    font-size: 2rem;
+    margin: 1rem 0rem 0.2rem 0rem ;
+}
+
+.initiative-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: 1rem;
+}
+
+.initiative-form *{
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #253e69ff;
+    color: #fff;
+    padding: 0.2rem;
+    margin: 0.3rem;
+    font-size: 1rem;
+}
+
+.input{
+    height: 2rem;
+}
+
+input:focus,
+input:active {
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    appearance: none;
+    background-color: #455e89ff;
+}
+
+::placeholder{
+    color: #fff;
+    opacity: 0.75;
+}
+
+input:-webkit-autofill{
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0px 1000px #253e69ff inset;
+    font-size: 1rem;
+}
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0px 1000px #455e89ff inset;
+    font-size: 1rem;
+}
+
+.add-button{
+    min-height: 2.5rem;
+    width: 5rem;
+    cursor: pointer;
+}
+
+.add-button:focus,
+.add-button:hover {
+    outline: none;
+    background-color: #455e89ff;
+}
+
+
+
+@media(min-width: 700px){
+    h1{
+        font-size: 3rem;
+        margin: 2rem 0rem 0.2rem 0rem ;
+    }
+    
+    .initiative-form *{
+        margin: 0.5rem;
+    }
+}

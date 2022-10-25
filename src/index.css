@@ -1,13 +1,65 @@
 body {
   margin: 0;
+  font-family: 'Garamond', 'Georgia', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+}
+
+/* DEFAULT CREATE-REACT-APP STYLES------------------------------------ */
+/* body {
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
+
+
+
+/* 
+APP COLOR PALLETTES---------------------------------------------
+https://www.color-hex.com/color-palettes/popular.php
+
+#432F70
+#e95670
+#713770 
+
+355070
+6D597A
+B56576
+E56B6F
+EAAC8B
+
+CURRENTLY USING-----------------------------------------------
+--amaranth-purple: #b7094cff;
+--jazzberry-jam: #a01a58ff;
+--amaranth-m-p: #892b64ff;
+--byzantium: #723c70ff;
+--cyber-grape: #5c4d7dff;
+--bdazzled-blue: #455e89ff;
+--cg-blue: #2e6f95ff;
+--cg-blue-2: #1780a1ff;
+--blue-munsell: #0091adff;
+
+--rosewood: #4f000bff;
+--claret: #720026ff;
+--brick-red: #ce4257ff;
+--coral: #ff7f51ff;
+--sandy-brown: #ff9b54ff;
+
+--fiery-rose: #ea5670ff;
+--ruber: #c54970ff;
+--magenta-haze: #9d3e70ff;
+--byzantium: #713770ff;
+--purple-navy: #555b84ff;
+--teal-blue: #377e96ff;
+--viridian-green: #1da3a9ff;*/
+
