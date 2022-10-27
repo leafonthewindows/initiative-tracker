@@ -1,64 +1,83 @@
-import React, { useState } from "react";
+import { clear } from "@testing-library/user-event/dist/clear";
+import React, { useState, useEffect } from "react";
+import { useForm } from 'react-hook-form';
 
 import Button from "../UI/Button";
 import styles from "./NewInitiative.module.css";
 
 const NewInitiative = (props) => {
-  const [nameShown, setNameShown] = useState("");
-  const nameChangeHandler = (event) => {
-    setNameShown(event.target.value);
-  };
 
-  const [numShown, setNumShown] = useState("");
-  const numChangeHandler = (event) => {
-    setNumShown(event.target.value);
-  };
+  //REACT-HOOK-FORM EXTRACTIONS
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setError,
+    clearErrors,
+    setFocus,
+    formState: { errors },
+  } = useForm({defaultValues:{name:"", num:""}});;
 
-  const nameInput = React.createRef();
+  useEffect(() => {
+    setFocus("name");
+  }, [setFocus]);
 
+  const checkWhitespace = (aString) => {
+    if(aString.trim().length == 0){
+      return "Name can't be whitespace"
+    }
+    return true
+  }
+
+  //SUBMITTING FORM
   const submitHandler = (event) => {
-    event.preventDefault();
 
+    //SEND INITIATIVE DATA UP TO APP
     const initiativeData = {
-      id: `${event.target.name.value}` + Math.random().toString(),
-      name: event.target.name.value,
-      num: event.target.num.value,
+      id: `${event.name}` + Math.random().toString(),
+      name: event.name,
+      num: event.num,
       highlight: "",
     };
-
     props.onAddInitiative(initiativeData);
 
-    setNameShown("");
-    setNumShown("");
+    //REFOCUS TO NAME AFTER SUBMITTING
+    setFocus("name");
 
-    nameInput.current.focus();
+    //RESET THE FORM
+    reset({name:"", num:""})
   };
 
   return (
     <section className={styles["new-initiative"]}>
       <h1>Enter New Initiative</h1>
-      <form className={styles["initiative-form"]} onSubmit={submitHandler}>
+      <form id="newInitiativeForm" className={styles["initiative-form"]} onSubmit={handleSubmit(submitHandler)}>
         <input
-          required
+        {...register('name', {required:"Name is required", validate:(v) => checkWhitespace(v)})}
           placeholder="Name"
-          id="name"
-          name="name"
-          value={nameShown}
-          onChange={nameChangeHandler}
-          ref={nameInput}
-        ></input>
+          type="string"
+          onChange={e => {
+            const value = e.target.value;
+            if (value.length > 0 && value.trim().length === 0) {
+              setError("name", { type: "custom", message: "Name can't be whitespace" })
+            } else if (value.length == 0){
+              clearErrors("name")
+              setError("name", { type: "custom", message: "Name is required" })
+            } else {
+              clearErrors("name")
+            }
+          }}
+        />
         <input
-          required
+          {...register('num', {required: "Initiative is required"})}
           placeholder="Initiative"
-          id="num"
-          name="num"
           type="number"
-          value={numShown}
-          onChange={numChangeHandler}
-        ></input>
+        />
         <button className={styles["add-button"]} type="submit">
           Add
         </button>
+        {errors.name && <p className={styles["error-message"]}>{errors.name.message}</p>}
+        {errors.num && <p className={styles["error-message"]}>{errors.num.message}</p>}
       </form>
     </section>
   );

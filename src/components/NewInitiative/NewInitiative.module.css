@@ -22,7 +22,8 @@ h1{
     margin: 1rem;
 }
 
-.initiative-form *{
+.initiative-form input,
+.initiative-form button{
     border: 2px solid #fff;
     border-radius: 10px;
     background-color: #253e69ff;
@@ -74,6 +75,12 @@ input:-webkit-autofill:active {
 .add-button:hover {
     outline: none;
     background-color: #455e89ff;
+}
+
+.error-message{
+    display: block;
+    width: 100%;
+    margin: 0.2rem 0rem 0rem 0rem;
 }
 
 

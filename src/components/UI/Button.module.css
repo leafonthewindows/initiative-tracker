@@ -10,6 +10,13 @@
     margin: 0.5rem;
 }
 
-.button:hover{
+.button:hover,
+.button:active,
+.button:focus{
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    appearance: none;
     background-color: #253e69ff;
 }
