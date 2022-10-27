@@ -30,3 +30,7 @@
     font-size: 1.7rem;
     cursor: pointer;
 }
+
+.smallFont {
+    font-size: 1rem
+}

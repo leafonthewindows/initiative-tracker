@@ -14,7 +14,13 @@ const Individual = (props) => {
   };
   return (
     <div className={`${styles[props.className] + " " + styles.row}`}>
-      <div>{props.name}</div>
+      <div>
+        {props.name.length > 10 ? (
+          <span className={styles.smallFont}>{props.name}</span>
+        ) : (
+          <span>{props.name}</span>
+        )}
+      </div>
       <div>{props.num}</div>
       <div>
         <button className={styles.button} onClick={removeIndividualHandler}>
