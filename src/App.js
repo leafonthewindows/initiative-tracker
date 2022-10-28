@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import NewInitiative from "./components/NewInitiative/NewInitiative";
 import Initiative from "./components/Initiative/Initiative";
@@ -27,7 +26,7 @@ function App() {
     const removalIndex = initiative.findIndex((el) => {
       return el.id === removalID;
     });
-    if (highlightIndex == removalIndex) {
+    if (highlightIndex === removalIndex) {
       highlightNextHandler();
     }
 
@@ -37,7 +36,7 @@ function App() {
     });
 
     //IF THIS IS LAST THE INDIVIDUAL, CHANGE CURRENT COMBAT
-    if (initiative.length == 1) {
+    if (initiative.length === 1) {
       setCurrentCombat(false);
     }
   };
