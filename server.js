@@ -1,13 +1,13 @@
-const express = require("express");
-
+const express = require('express');
+const path = require('path');
 const app = express();
 
-app.set("port", process.env.PORT || 3001);
+app.use(express.static(path.join(__dirname, 'build')));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-}
-
-app.listen(app.get("port"), () => {
-  console.log(`Find the server at: http://localhost:${app.get("port")}/`);
+app.get('/', function (req, res) {
+  console.log("run through server.js")
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+const port = process.env.PORT || 3000
+app.listen(port, () => console.log(`Listening on port ${port}`))
