@@ -12,7 +12,7 @@ const NewInitiative = (props) => {
     clearErrors,
     setFocus,
     formState: { errors },
-  } = useForm({ defaultValues: { name: "", num: "" } });
+  } = useForm({ defaultValues: { name: "", num: null } });
 
   useEffect(() => {
     setFocus("name");
@@ -52,31 +52,38 @@ const NewInitiative = (props) => {
         onSubmit={handleSubmit(submitHandler)}
       >
         <input
-          {...register("name", {
+            placeholder="Name" type="string" {...register("name", {
             required: "Name is required",
             validate: (v) => checkWhitespace(v),
-          })}
-          placeholder="Name"
-          type="string"
-          onChange={(e) => {
-            const value = e.target.value;
-            if (value.length > 0 && value.trim().length === 0) {
-              setError("name", {
-                type: "custom",
-                message: "Name can't be whitespace",
-              });
-            } else if (value.length === 0) {
-              clearErrors("name");
-              setError("name", { type: "custom", message: "Name is required" });
-            } else {
-              clearErrors("name");
-            }
-          }}
+            onChange:(e) => {
+              const value = e.target.value;
+              if (value.length > 0 && value.trim().length === 0) {
+                setError("name", {
+                  type: "custom",
+                  message: "Name can't be whitespace",
+                });
+              } else if (value.length === 0) {
+                clearErrors("name");
+                setError("name", { type: "custom", message: "Name is required" });
+              } else {
+                clearErrors("name");
+              }
+            }}
+          )}
         />
         <input
-          {...register("num", { required: "Initiative is required" })}
-          placeholder="Initiative"
-          type="number"
+          placeholder="Initiative" type="number" {...register("num", { required: "Initiative is required",
+            valueAsNumber: true,
+            onChange:(e) => {
+              const value = e.target.value;
+                if (value.length === 0) {
+                setError("num", { type: "custom", message: "Initiative is required" });
+              } else {
+                clearErrors("num");
+              }
+            }
+            }
+          )}
         />
         <button className={styles["add-button"]} type="submit">
           Add
