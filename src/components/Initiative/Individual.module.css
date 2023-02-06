@@ -12,12 +12,16 @@
     border-color: black;
     height: 4rem;
     background-color: #723c70ff;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .row div{
     flex: 1;
     text-align: center;
+}
+
+.smallFont {
+    font-size: .8rem
 }
 
 .button{
@@ -31,6 +35,12 @@
     cursor: pointer;
 }
 
-.smallFont {
-    font-size: 1rem
+
+@media (min-width: 600px){
+    .row{
+        font-size: 1.5rem;
+    }
+    .smallFont{
+        font-size: 1rem;
+    }
 }
