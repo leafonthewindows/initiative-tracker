@@ -72,7 +72,7 @@ const NewInitiative = (props) => {
           )}
         />
         <input
-          placeholder="Initiative" type="number" {...register("num", { required: "Initiative is required",
+          placeholder="Initiative" type="number" step="any" {...register("num", { required: "Initiative is required",
             valueAsNumber: true,
             onChange:(e) => {
               const value = e.target.value;

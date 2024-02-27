@@ -1,7 +1,7 @@
 .initiative{
     display: flex;
     flex-wrap: wrap;
-    align-content: start;
+    align-content: flex-start;
     justify-content: center;
     background-color: #455e89ff;
     margin: 0, 2rem;

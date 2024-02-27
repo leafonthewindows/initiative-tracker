@@ -10,9 +10,7 @@
     margin: 0.5rem 0.3rem;
 }
 
-.button:hover,
-.button:active,
-.button:focus{
+.button:hover{
     -webkit-appearance: none;
     -ms-appearance: none;
     -moz-appearance: none;
